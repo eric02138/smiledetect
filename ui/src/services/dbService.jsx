@@ -1,4 +1,4 @@
-// src/services/uploadService.js
+// src/services/dbService.js
 import axios from 'axios';
 import { Observable } from 'rxjs';
 
@@ -8,8 +8,8 @@ const api = axios.create({
   timeout: 30000,
 });
 
-export class UploadService {
-  static uploadFile(file) {
+export class DbService {
+  static saveData(file) {
     return new Observable((subscriber) => {
       // Create a cancelation token
       const cancelToken = axios.CancelToken.source();
@@ -18,26 +18,9 @@ export class UploadService {
       const formData = new FormData();
       formData.append('file', file);
       
-      // Track upload progress
-      const config = {
-        onUploadProgress: (progressEvent) => {
-          const percentCompleted = Math.round(
-            (progressEvent.loaded * 100) / progressEvent.total
-          );
-          subscriber.next({ 
-            type: 'progress', 
-            payload: percentCompleted 
-          });
-        },
-        cancelToken: cancelToken.token,
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      };
-      
       // Make the API call
       api
-        .post('/upload', formData, config)
+        .post('/dbsave', formData, config)
         .then((response) => {
           subscriber.next({ 
             type: 'success', 

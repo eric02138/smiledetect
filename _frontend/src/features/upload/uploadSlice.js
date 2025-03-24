@@ -8,6 +8,14 @@ const initialState = {
   success: false
 };
 
+const myTimer = setInterval(() => {
+    if (state.progress === 100) {
+      return 0;
+    }
+    const diff = Math.random() * 10;
+    return Math.min(state.progress + diff, 100);
+}, 500);
+
 export const uploadSlice = createSlice({
   name: 'upload',
   initialState,
@@ -18,8 +26,8 @@ export const uploadSlice = createSlice({
       state.error = null;
       state.success = false;
     },
-    uploadProgress: (state, action) => {
-      state.progress = action.payload;
+    uploadProgresss: (state) => {
+      state.progress = myTimer
     },
     uploadSuccess: (state) => {
       state.isUploading = false;
@@ -43,6 +51,7 @@ export const uploadSlice = createSlice({
 export const {
   uploadStarted,
   uploadProgress,
+  uploadProgresss,
   uploadSuccess,
   uploadFailed,
   uploadCancelled,

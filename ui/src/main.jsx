@@ -12,7 +12,9 @@ import App from './App.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+      {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon.
+        Jeez, there's marketing EVERYWHERE.  So American.
+      */}
       <CssBaseline />
       <App />
     </ThemeProvider>
