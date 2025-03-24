@@ -2,7 +2,7 @@
 Find a smile from an uploaded image
 
 
-#Installation
+# Installation
 ## Backend Setup
 On the command line, change directories to the __/backend__ directory 
 I like to set up a virtual environment for each application using pyenv ([text](https://github.com/pyenv/pyenv?tab=readme-ov-file#a-getting-pyenv)).  But then some people *like* to clutter up their system python environment with libraries.  You do you.
