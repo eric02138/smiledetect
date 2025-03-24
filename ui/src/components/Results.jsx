@@ -46,6 +46,8 @@ const Results = () => {
   const saveSubscription = useRef(null);
 
   const id = useId()
+  const id2 = useId()
+
 
   const startSaving = () => {
     dispatch(saveStart());
@@ -108,7 +110,7 @@ const Results = () => {
             </Grid>
             <Grid item xs={9} md={9}>
               <Item>
-              {upload_state.smileData.output_filename && (
+              {upload_state?.smileData?.output_filename && (
                   <div key={ id } >
                     <p>{ upload_state.smileData.output_filename }</p>
                   </div>
@@ -129,7 +131,7 @@ const Results = () => {
               )
             : 
               upload_state.smileData.smile_list.map((item) => (
-                <div key={ id } >
+                <div key={ id2 } >
                   <p>Top Left: x={ item[0] }px, y={ item[1] }px</p>
                   <p>Bottom Right: x={ item[2] }px, y={ item[3] }px</p>
                 </div>

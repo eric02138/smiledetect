@@ -10,7 +10,7 @@ from datetime import datetime
 import uuid
 import cv2
 from sqlmodel import Session, SQLModel, create_engine
-from db_smile_model import SmileData, CoordinateData
+from db_smile_model import SmileData
 
 app = FastAPI()
 
